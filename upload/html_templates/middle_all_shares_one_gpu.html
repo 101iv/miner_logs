@@ -1,0 +1,173 @@
+<div id="container%s" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script type='text/javascript'>//<![CDATA[
+
+
+Highcharts.chart('container%s', {
+    chart: {
+        zoomType: 'xy'
+    },
+    title: {
+        text: 'Анализ логов'
+    },
+    subtitle: {
+        text: 'Майнер: Claymore. Анализ скорости добычи шар для GPU %s'
+    },
+    xAxis: [{
+        categories: [%s],
+        crosshair: true
+    }],
+    yAxis: [{ // 0 Primary yAxis
+        labels: {
+            format: '{value}ш/ч',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        title: {
+            text: 'шар/час',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+    }, { // 1 Secondary yAxis
+		//max: 1000,
+        title: {
+            text: 'количество шар',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        labels: {
+            format: '{value} шт',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        opposite: true
+    }, { // 2 yAxis
+        title: {
+            text: 'вольтаж',
+            style: {
+                color: Highcharts.getOptions().colors[3]
+            }
+        },
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[3]
+            }
+        },
+        opposite: true
+    }, { // 3 yAxis
+
+        title: {
+            text: 'частота ядра',
+            style: {
+                color: Highcharts.getOptions().colors[2]
+            }
+        },
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[2]
+            }
+        },
+        opposite: true
+		
+    }, { // 4 yAxis
+
+        title: {
+            text: 'частота пямяти',
+            style: {
+                color: Highcharts.getOptions().colors[2]
+            }
+        },
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[2]
+            }
+        },
+        opposite: true
+    }
+	
+	],
+    tooltip: {
+        shared: true
+    },
+    legend: {
+        layout: 'horizontal',
+        align: 'center',
+        x: 0,
+        verticalAlign: 'top',
+        y: 0,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    series: [{
+        name: 'кол шар',
+        type: 'column',
+        yAxis: 1,
+        data: [%s],
+        tooltip: {
+        valueSuffix: ' шт'
+        }
+
+    }, {
+        name: 'шар/час',
+        type: 'spline',
+        data: [%s],
+        tooltip: {
+            valueSuffix: ' шар/час'
+        }
+    }, {
+        name: 'Ошибки',
+        type: 'spline',
+		color: Highcharts.getOptions().colors[5],
+        data: [%s],
+        tooltip: {
+            valueSuffix: ' ошибок'
+        }		
+    }	, {
+		yAxis: 3,
+        name: 'Част. ядра',
+        type: 'spline',
+		color: Highcharts.getOptions().colors[2],
+        data: [%s],
+        tooltip: {
+            valueSuffix: ' '
+        }		
+    }, {
+		yAxis: 4,
+        name: 'Част. памяти',
+        type: 'spline',
+		color: Highcharts.getOptions().colors[2],
+        data: [%s],
+        tooltip: {
+            valueSuffix: ' '
+        }		
+    }, {
+		yAxis: 2,
+        name: 'Вольт. ядра',
+        type: 'spline',
+		color: Highcharts.getOptions().colors[3],
+        data: [%s],
+        tooltip: {
+            valueSuffix: ' '
+        }		
+    }, {
+		yAxis: 2,
+        name: 'Вольт. памяти',
+        type: 'spline',
+		color: Highcharts.getOptions().colors[3],
+        data: [%s],
+        tooltip: {
+            valueSuffix: ' '
+        }		
+    }
+	
+	]
+});
+//]]> 
+</script>
+<div id="info" style="font-family: arial; font-size: 12px; margin: 0 auto">%s</div>

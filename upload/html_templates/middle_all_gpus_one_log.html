@@ -1,0 +1,24 @@
+<!----------->
+<div style="width: 300px; height: auto; margin: 0 auto; float:left;font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+%s  
+</div>
+<div id="container%s" style="min-width: 310px; height: 250px; margin: 0 auto; float:left"></div>
+<script type='text/javascript'>//<![CDATA[
+Highcharts.chart('container%s', {
+    chart: {type: 'column'},
+    title: {text: '<span style="font-size:12px">%s - %s</span>'},
+    subtitle: {text: ''},
+    xAxis: {categories: [%s],crosshair: true},
+    yAxis: {min: 0,max: 35, title: {text: 'кол. шар/час'}},
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.y:.2f} ш/ч</span><table><tr><td style="padding:0"><b>{point.key}</b></td></tr>',
+        pointFormat: '',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    series: [{name: 'GPU',data: [%s]}]
+});
+//]]> 
+</script>
+<!----------->
