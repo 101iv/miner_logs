@@ -188,15 +188,17 @@ Highcharts.chart('container7', {
 });
 //]]> 
 </script>
-<div id="info" style="font-family: arial; font-size: 12px; margin: 0 auto">Ошибка GPU 7=0.00mh/s: 2018-01-19 22:53:36  (1150/2100  906/925  -tt=60)<br></div>  <script>
-  // tell the embed parent frame the height of the content
-  if (window.parent && window.parent.parent){
-    window.parent.parent.postMessage(["resultsFrame", {
-      height: document.body.getBoundingClientRect().height,
-      slug: "None"
-    }], "*")
-  }
-</script>
+<div id="info" style="font-family: arial; font-size: 12px; margin: 0 auto">
+	Ошибка GPU 7=0.00mh/s: 2018-01-19 22:53:36  (1150/2100  906/925  -tt=60)<br><br>
+	Скрипт обходит все логи в заданной папке и подсчитывает скорость добытых шар за час. <br>
+	Чтобы повысить точность, учитываются только логи, продолжительность которых больше часа.<br><br>
+	На графике можно убирать ненужные данные, кликнув на название. Также график масштабируется. 
+	Скрипт работает на windows и linux-подобных системах, для работы необходим Python 3: https://www.python.org/downloads/release/python-364/
+	
+	
+</div>  
+
+	
 
 </body>
 
